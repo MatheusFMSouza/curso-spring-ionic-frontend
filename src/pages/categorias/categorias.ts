@@ -1,3 +1,4 @@
+import { ProdutoService } from './../../services/domain/produto.service';
 import { API_CONFIG } from './../../config/api.config';
 import { CategoriaService } from './../../services/domain/categoria.service';
 import { Component } from '@angular/core';
@@ -24,7 +25,7 @@ export class CategoriasPage {
 
   constructor(public navCtrl: NavController,
               public navParams: NavParams,
-              public categoriaService : CategoriaService) {
+              public categoriaService: CategoriaService) {
   }
 
 
@@ -37,8 +38,8 @@ export class CategoriasPage {
 
   }
 
-  showProdutos() {
-    this.navCtrl.push('ProdutosPage');
+  showProdutos(categoria_id:string) {
+    this.navCtrl.push('ProdutosPage',{categoria_id:categoria_id});
   }
 
 
