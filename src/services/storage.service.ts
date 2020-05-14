@@ -1,4 +1,4 @@
-import { Cart } from './../models/cart';
+import { Cart } from "./../models/cart";
 import { STORAGE_KEYS } from "./../config/storage_keys.config";
 import { LocalUser } from "./../models/local_user";
 import { Injectable } from "@angular/core";
@@ -22,9 +22,9 @@ export class StorageService {
     }
   }
   getCart(): Cart {
-    let usr = localStorage.getItem(STORAGE_KEYS.localUser);
-    if (usr != null) {
-      return JSON.parse(usr);
+    let str = localStorage.getItem(STORAGE_KEYS.cart);
+    if (str != null) {
+      return JSON.parse(str);
     } else {
       return null;
     }
@@ -32,9 +32,9 @@ export class StorageService {
 
   setCart(obj: Cart) {
     if (obj != null) {
-      localStorage.setItem(STORAGE_KEYS.localUser, JSON.stringify(obj));
+      localStorage.setItem(STORAGE_KEYS.cart, JSON.stringify(obj));
     } else {
-      localStorage.removeItem(STORAGE_KEYS.localUser);
+      localStorage.removeItem(STORAGE_KEYS.cart);
     }
   }
 }
