@@ -25,7 +25,7 @@ export class ProfilePage {
     if (localUser && localUser.email) {
       this.service.findByEmail(localUser.email).subscribe(
         (response) => {
-          this.cliente = response;
+          this.cliente = response as ClienteDTO;
           //buscar imagem do usuario no bucket
           this.getImageIfExists();
         },
