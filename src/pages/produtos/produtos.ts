@@ -17,7 +17,7 @@ import { IonicPage, NavController, NavParams, LoadingController } from "ionic-an
   templateUrl: "produtos.html",
 })
 export class ProdutosPage {
-  items: ProdutoDTO[];
+  items: ProdutoDTO[] = [];
   page : number = 0;
   constructor(public navCtrl: NavController,
     public navParams: NavParams,
@@ -75,6 +75,14 @@ export class ProdutosPage {
     this.loadData();
     setTimeout(() => {
       refresher.complete();
+    }, 1000);
+  }
+
+  doInfinite(infiniteScroll) {
+    this.page++;
+    this.loadData();
+    setTimeout(() => {
+      infiniteScroll.complete();
     }, 1000);
   }
 
