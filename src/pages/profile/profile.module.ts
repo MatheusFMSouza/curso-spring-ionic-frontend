@@ -1,7 +1,7 @@
-import { Camera, CameraOriginal } from '@ionic-native/camera';
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
 import { ProfilePage } from './profile';
+import { Camera } from '@ionic-native/camera';
 
 @NgModule({
   declarations: [
@@ -11,7 +11,7 @@ import { ProfilePage } from './profile';
     IonicPageModule.forChild(ProfilePage),
   ],
   providers: [
-    CameraOriginal
+    Camera
   ]
 })
 export class ProfilePageModule {}

@@ -4,7 +4,7 @@ import { StorageService } from '../../services/storage.service';
 import { ClienteDTO } from '../../models/cliente.dto';
 import { ClienteService } from '../../services/domain/cliente.service';
 import { API_CONFIG } from '../../config/api.config';
-import { CameraOptions, Camera, CameraOriginal } from '@ionic-native/camera';
+import {  Camera } from '@ionic-native/camera';
 import { DomSanitizer } from '@angular/platform-browser';
 
 @IonicPage()
@@ -24,7 +24,7 @@ export class ProfilePage {
     public navParams: NavParams,
     public storage: StorageService,
     public clienteService: ClienteService,
-    public camera: CameraOriginal,
+    public camera: Camera,
     public sanitizer: DomSanitizer) {
 
       this.profileImage = 'assets/imgs/avatar-blank.png';
@@ -116,15 +116,15 @@ export class ProfilePage {
     });
   }
 
- // sendPicture() {
-   // this.clienteService.uploadPicture(this.picture)
-     // .subscribe(response => {
-       // this.picture = null;
-       // this.getImageIfExists();
-      //},
-     // error => {
-     // });
- // }
+  sendPicture() {
+    this.clienteService.uploadPicture(this.picture)
+      .subscribe(response => {
+        this.picture = null;
+        this.getImageIfExists();
+      },
+      error => {
+      });
+  }
 
   cancel() {
     this.picture = null;
